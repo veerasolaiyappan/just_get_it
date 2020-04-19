@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="ui text container" style="margin: 20px;">
+
+	<div class="ui raise segment">
+		<h2 class="ui center aligned blue header">
+			Daily / Weekly / Monthly Progress Report
+		</h2>
+	</div>
+
+	<a href="{% url 'table' %}"><button class="ui blue button">Dashboard</button></a>
+
+	<div class="ui raised blue segment">
+
+		<form class="ui form" method="POST" action="{% url 'table' %}" enctype="multipart/form-data" style="padding: 10px;">
+
+			{% csrf_token %}
+
+			<div class="field">
+			    <label>Name</label>
+			    <input type="text" name="username" placeholder="username">
+			</div>
+			
+			<div class="field">
+			    <label>Date</label>
+			    <input type="date" name="date" placeholder="Date">
+			</div>
+			
+			<label>Reports: </label>
+			<div class="ui selection dropdown" style="margin: 10px;">
+			  <input type="hidden" name="report">
+			  <i class="dropdown icon"></i>
+			  <div class="default text">Daily</div>
+			  <div class="menu">
+			    <div class="item" data-value="daily">Daily</div>
+			    <div class="item" data-value="weekly">Weekly</div>
+			    <div class="item" data-value="monthly">Monthly</div>
+			  </div>
+			</div><p></p>
+			
+			<label for="fruit">Team Lead:</label><p></p>
+			<div class="inline fields">
+			    
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" checked="" tabindex="0" class="hidden">
+			        <label>Raktima Mitra</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Akanksha</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Amitesh Ranjan</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Sheetal</label>
+			      </div>
+			    </div>
+
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Kanika</label>
+			      </div>
+			    </div>
+
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Ajeet</label>
+			      </div>
+			    </div>
+
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="lead" tabindex="0" class="hidden">
+			        <label>Shekhar</label>
+			      </div>
+			    </div>
+			  </div>
+			
+			<div class="field">
+			    <label>No of Hours</label>
+			    <input type="text" name="no_of_hours" placeholder="No of hours">
+			</div>
+			
+			<div class="field">
+			    <label>Today's Progress</label>
+			    <input type="text" name="today_progress" placeholder="Today progress">
+			</div>
+			
+			<div class="field">
+			    <label>Upload Today's Documents</label>
+			    <input type="file" name="todays_document" placeholder="Todays Document">
+			</div>
+
+			<div class="field">
+			    <label>Concerns If Any</label>
+			    <input type="text" name="concern" placeholder="Concerns">
+			</div>
+
+			<div class="field">
+			    <label>Next plan</label>
+			    <input type="text" name="next_plan" placeholder="Next Plan">
+			</div>
+
+			<div class="field">
+			    <label>Upload Next Plan Documents If You any have</label>
+			    <input type="file" name="next_plan_document" placeholder="Next Plan Documents">
+			</div>
+
+			<button class="ui blue button">Submit</button>
+			
+
+		</form>
+	</div>
+
+</div>
+
+{% endblock %}

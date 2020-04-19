@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="ui container">
+
+	<div class="ui raised segment" style="margin: 20px;">
+		<h2 class="ui center aligned blue header"> Reports Table</h2>
+	</div>
+	
+
+	<button class="ui green button"><a href= "{% url 'form' %}">Add Records</a></button>
+
+	<div class="ui raised blue segment">
+
+		<table class="ui striped table">
+
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Date </th>
+		      <th>Reports</th>
+		      <th>Team Lead</th>
+		      <th>No of Hours</th>
+		      <th>Today's Progress</th>
+		      <th>Upload Today's Documents</th>
+		      <th>Concerns If Any</th>
+		      <th>Next plan</th>
+		      <th>Next Plan Documents</th>
+		      
+		    </tr>
+		  </thead>
+
+		  <tbody>
+
+		  	{% if form %}
+
+			  	{% for row in form %}
+			  	<td>{{ row.username }}</td>
+			  	<td>{{ row.date }}</td>
+			  	<td>{{ row.report }}</td>
+			  	<td>{{ row.lead }}</td>
+			  	<td>{{ row.no_of_hours }}</td>
+			  	<td>{{ row.today_progres }}</td>
+			  	<td>{{ row.todays_document.url }}</td>
+			  	<td>{{ row.concern }}</td>
+			  	<td>{{ row.next_plan }}</td>
+			  	<td>{{ row.next_plan_document.url }}</td>
+			  	
+			  	{% endfor %}
+
+		  	{% endif %}
+
+
+		  	
+		  </tbody>
+		</table>
+		
+	</div>
+
+
+	
+</div>
+
+
+{% endblock %}
